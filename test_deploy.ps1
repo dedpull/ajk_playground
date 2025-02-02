@@ -7,7 +7,7 @@ $OSLanguage = 'en-us'
 
 #Set Global OSDCloud Vars
 $Global:MyOSDCloud = [ordered]@{
-    Restart = [bool]$False
+    Restart = [bool]$True
     RecoveryPartition = [bool]$True
     OEMActivation = [bool]$True
     WindowsUpdate = [bool]$True
