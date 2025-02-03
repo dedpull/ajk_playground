@@ -13,8 +13,6 @@ $Global:MyOSDCloud = [ordered]@{
     WindowsDefenderUpdate = [bool]$true
     WindowsUpdate = [bool]$true
     WindowsUpdateDrivers = [bool]$true
-    DriverPack = $null
-    DriverPackName = $null
     SyncMSUpCatDriverUSB = [bool]$true
 }
 
