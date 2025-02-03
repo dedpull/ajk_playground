@@ -1,23 +1,15 @@
-# Settings
-$OSName = 'Windows 11 24H2 x64'
-$OSEdition = 'Pro'
-$OSActivation = 'Retail'
-$OSLanguage = 'en-us'
-
+$Params = @{
+    OSVersion = "Windows 11"
+    OSBuild = "24H2"
+    OSEdition = "Pro"
+    OSLanguage = "en-us"
+    ZTI = $true
+    Firmware = $true   
+}
 
 #Set Global OSDCloud Vars
 $Global:MyOSDCloud = [ordered]@{
-    Restart = [bool]$False
-    RecoveryPartition = [bool]$True
-    OEMActivation = [bool]$True
-    WindowsUpdate = [bool]$True
-    WindowsUpdateDrivers = [bool]$True
-    WindowsDefenderUpdate = [bool]$True
-    SetTimeZone = [bool]$True
-    ClearDiskConfirm = [bool]$False
-    ShutdownSetupComplete = [bool]$False
-    SyncMSUpCatDriverUSB = [bool]$Flase
-    CheckSHA1 = [bool]$True
+    DriverPackName = 'none'
 }
 
 $OOBEDeployJson = @'
@@ -35,8 +27,7 @@ $OOBEDeployJson = @'
 '@
 
 
-Write-Host "Start-OSDCloud -OSName $OSName -OSEdition $OSEdition -OSActivation $OSActivation -OSLanguage $OSLanguage -SkipAutopilot -SkipODT"
-Start-OSDCloud -OSName $OSName -OSEdition $OSEdition -OSActivation $OSActivation -OSLanguage $OSLanguage -SkipAutopilot -SkipODT
+Start-OSDCloud @Params
 
 If (!(Test-Path "C:\ProgramData\OSDeploy")) {
     New-Item "C:\ProgramData\OSDeploy" -ItemType Directory -Force | Out-Null
