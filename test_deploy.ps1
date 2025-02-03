@@ -13,6 +13,7 @@ $Global:MyOSDCloud = [ordered]@{
     WindowsDefenderUpdate = [bool]$true
     WindowsUpdate = [bool]$true
     WindowsUpdateDrivers = [bool]$true
+    DriverPackName = 'none'
 }
 
 $OOBEDeployJson = @'
