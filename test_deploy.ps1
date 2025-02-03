@@ -22,8 +22,8 @@ $Global:MyOSDCloud = [ordered]@{
 
 $OOBEDeployJson = @'
 {
-    "AddNetFX3":  {
-                      "IsPresent":  true
+    "Autopilot":  {
+                      "IsPresent":  false
                   },
     "UpdateDrivers":  {
                           "IsPresent":  true
