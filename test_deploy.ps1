@@ -4,12 +4,15 @@ $Params = @{
     OSEdition = "Pro"
     OSLanguage = "en-us"
     ZTI = $true
-    Firmware = $true   
+    Firmware = $true
 }
 
 #Set Global OSDCloud Vars
-$Global:MyOSDCloud = [ordered]@{
-    DriverPackName = 'none'
+$Global:MyOSDCloud = [ordered]@{ 
+    SetTimeZone = [bool]$true
+    WindowsDefenderUpdate = [bool]$true
+    WindowsUpdate = [bool]$true
+    WindowsUpdateDrivers = [bool]$true
 }
 
 $OOBEDeployJson = @'
@@ -54,6 +57,11 @@ exit
 '@
 $OOBECMD | Out-File -FilePath 'C:\Windows\Setup\scripts\oobe.cmd' -Encoding ascii -Force
 
+#=======================================================================
+#   Restart-Computer
+#=======================================================================
+Write-Host -ForegroundColor Green "Restarting in 20 seconds!"
+Start-Sleep -Seconds 20
 wpeutil reboot
 
 
